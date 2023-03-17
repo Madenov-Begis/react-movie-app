@@ -1,0 +1,31 @@
+a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+}
+li{
+    list-style: none;
+}
+
+.main{
+    position: relative;
+    padding: 2rem 0;
+    top: 70px;
+}
+.basis{
+    flex-basis: 33.33333%;
+}
+
+.select{
+    display: flex;
+    justify-content: flex-end;
+}
+.select select{
+    width: 18%;
+}
+
+
+.pagination{
+    display: flex;
+    justify-content: center;
+}
