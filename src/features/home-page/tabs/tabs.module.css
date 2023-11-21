@@ -1,0 +1,65 @@
+.movieCard {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.movieCard:hover {
+  transform: scale(1.1);
+}
+
+.image {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+}
+
+.movieTitle {
+  margin: 6px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #d9d9d9;
+}
+
+.movieYear {
+  color: #737373;
+}
+.row {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+  }
+}
+
+.lastadded {
+  color: #d9d9d9;
+  display: flex;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.linkTo {
+  border: 1px solid #606060;
+  color: #d9d9d9;
+  cursor: pointer;
+  padding: calc(0.375em - 1px) 0.75em;
+  text-align: center;
+  white-space: nowrap;
+  transition: 0.5s ease;
+}
+
+.linkTo:hover {
+  border: 1px solid #dbdbdb;
+}

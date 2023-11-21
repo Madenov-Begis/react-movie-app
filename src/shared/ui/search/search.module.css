@@ -1,0 +1,23 @@
+.search {
+  display: flex;
+}
+
+.input {
+  width: 650px;
+}
+
+.filterIcon {
+  margin-left: 24px;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #606060;
+  transition: ease-in 0.1s;
+}
+
+.filterIcon:hover {
+  border: 1px solid #fff;
+}

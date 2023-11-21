@@ -1,0 +1,22 @@
+.logo {
+  width: 150px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  width: 100%;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.profile {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
