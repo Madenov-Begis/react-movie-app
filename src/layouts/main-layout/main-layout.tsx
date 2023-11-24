@@ -9,12 +9,10 @@ import Toolbar from '@mui/material/Toolbar'
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies'
 import GroupWorkIcon from '@mui/icons-material/GroupWork'
 import LogoutIcon from '@mui/icons-material/Logout'
-
-import Cookies from 'js-cookie'
+import SearchIcon from '@mui/icons-material/Search'
 
 import styles from './main-layout.module.css'
 import { Outlet, Link, NavLink } from 'react-router-dom'
-import { AuthService } from '../../features/auth/service/auth-service'
 
 const drawerWidth = 240
 
@@ -23,20 +21,6 @@ export default function MainLayout() {
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
-  }
-
-  const getRewToken = async () => {
-    try {
-      const { data } = await AuthService.getReqToken()
-
-      if (data.success == true) {
-        Cookies.set('reqToken', data.request_token, {
-          expires: 3600
-        })
-      }
-    } catch (error) {
-      console.log(error)
-    }
   }
 
   const drawer = (
@@ -57,11 +41,7 @@ export default function MainLayout() {
             <div>Фильмы</div>
           </ListItemButton>
         </NavLink>
-        <NavLink
-          onClick={getRewToken}
-          to={'/tv-series'}
-          style={{ display: 'inline-block' }}
-        >
+        <NavLink to={'/tv-series'} style={{ display: 'inline-block' }}>
           <ListItemButton disableGutters sx={{ px: '24px', py: '8px' }}>
             <GroupWorkIcon sx={{ mr: '32px' }} />
             <div>Сериалы</div>
@@ -69,6 +49,12 @@ export default function MainLayout() {
         </NavLink>
       </div>
       <div className={styles.profile} style={{ color: 'white' }}>
+        <NavLink to={'/search'} style={{ display: 'inline-block' }}>
+          <ListItemButton disableGutters sx={{ px: '24px', py: '8px' }}>
+            <SearchIcon sx={{ mr: '32px' }} />
+            <div>Поиск</div>
+          </ListItemButton>
+        </NavLink>
         <NavLink to={'/login'} style={{ display: 'inline-block' }}>
           <ListItemButton disableGutters sx={{ px: '24px', py: '8px' }}>
             <LogoutIcon sx={{ mr: '32px' }} />
@@ -157,7 +143,7 @@ export default function MainLayout() {
       <Box
         component="main"
         sx={{
-          height: '100%',
+          minHeight: '100vh',
           flexGrow: 1,
           p: '16px',
           width: { xs: '100%', md: `calc(100% - ${drawerWidth}px)` },

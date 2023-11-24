@@ -1,3 +1,5 @@
+;('')
+
 import * as React from 'react'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
@@ -12,6 +14,7 @@ import GroupWorkIcon from '@mui/icons-material/GroupWork'
 import styles from './tabs.module.css'
 import { Skeleton } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { CardItem } from '../../../shared/ui/card-item/card-item'
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -110,20 +113,7 @@ export function BasicTabs() {
           {!isloading &&
             movies.map((movie: any) => (
               <Grid item xs={6} sm={6} md={4} lg={3} xl={2} key={movie.id}>
-                <Link to={`movies/${movie.id}`}>
-                  <div className={styles.movieCard}>
-                    <div className={styles.image}>
-                      <img
-                        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                        alt="image"
-                      />
-                    </div>
-                    <div className={styles.movieTitle}>{movie.title}</div>
-                    <div className={styles.movieYear}>
-                      {movie.release_date.slice(0, 4)}
-                    </div>
-                  </div>
-                </Link>
+                <CardItem movie={movie} />
               </Grid>
             ))}
 
@@ -165,20 +155,7 @@ export function BasicTabs() {
           {!isloading &&
             series.map((serie: any) => (
               <Grid item xs={6} sm={6} md={4} lg={3} xl={2} key={serie.id}>
-                <Link to={`tv-series/${serie.id}`}>
-                  <div className={styles.movieCard}>
-                    <div className={styles.image}>
-                      <img
-                        src={`https://image.tmdb.org/t/p/original/${serie.poster_path}`}
-                        alt="image"
-                      />
-                    </div>
-                    <div className={styles.movieTitle}>{serie.name}</div>
-                    <div className={styles.movieYear}>
-                      {serie.first_air_date.slice(0, 4)}
-                    </div>
-                  </div>
-                </Link>
+                <CardItem movie={serie} />
               </Grid>
             ))}
 

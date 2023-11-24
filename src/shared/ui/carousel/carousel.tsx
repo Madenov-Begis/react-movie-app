@@ -51,7 +51,7 @@ const Carousel = () => {
         >
           {slides.map((item: any) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={item.id}>
                 <div className={styles.carouselItem}>
                   <img
                     className={styles.carouselImages}

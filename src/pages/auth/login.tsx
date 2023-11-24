@@ -1,16 +1,26 @@
 import Cookies from 'js-cookie'
+import { LoginForm } from '../../features/auth/ui/login-form'
+import { AuthService } from '../../features/auth/service/auth-service'
 
 const Login = () => {
+  const getReqToken = async () => {
+    try {
+      const { data } = await AuthService.getReqToken()
+
+      if (data.success == true) {
+        Cookies.set('reqToken', data.request_token, {
+          expires: 1 / 24,
+        })
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
-      <div
-        style={{
-          backgroundColor: '#0E121B',
-          fontSize: '28px',
-          fontWeight: '700',
-        }}
-      >
-        Авторизация
+      {/* <div>
+        <button onClick={getReqToken}>Get request token</button>
       </div>
       <div>
         <button>
@@ -22,7 +32,8 @@ const Login = () => {
             Confirm
           </a>
         </button>
-      </div>
+      </div> */}
+      <LoginForm />
     </>
   )
 }

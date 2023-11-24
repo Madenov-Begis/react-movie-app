@@ -56,7 +56,7 @@ export const SeriesDetail = () => {
                 <div>Время</div>
               </div>
               <div className={styles.right}>
-                <div>{detail?.production_countries[0].name}</div>
+                <div>{detail?.production_countries[0]?.name}</div>
                 <div>{detail?.last_air_date.slice(0, 4)}</div>
                 <div>
                   {detail?.genres.map((item) => {

@@ -1,3 +1,10 @@
+export interface ResponsiveMovie {
+  page: number | null
+  results: MovieDetail[]
+  total_pages: number
+  totatl_results: number
+}
+
 export interface MovieDetail {
   adult: boolean
   backdrop_path: string
@@ -22,7 +29,7 @@ export interface MovieDetail {
   tagline: string
   title: string
   video: false
-  vote_average: number  
+  vote_average: number
   vote_count: number
 }
 

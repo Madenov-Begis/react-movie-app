@@ -5,19 +5,19 @@
 }
 
 .movieCard:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .image {
-  height: 350px;
-  border-radius: 10px;
-  overflow: hidden;
+    height: 380px;
+    overflow: hidden;
 }
 
 .image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 10px;
 }
 
 .movieTitle {

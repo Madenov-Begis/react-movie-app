@@ -59,7 +59,7 @@ export const MoviesDetail = () => {
                   {detail?.genres.map((item) => {
                     return (
                       <span className={styles.genre} key={item.id}>
-                        {item.name}
+                        {item?.name}
                       </span>
                     )
                   })}

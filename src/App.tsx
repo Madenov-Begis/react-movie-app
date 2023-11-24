@@ -10,19 +10,24 @@ import { Movies, Series } from './pages/index.ts'
 import { MoviesDetail } from './features/movies/ui/movie-deatil/movies-detail.tsx'
 import { SeriesDetail } from './features/series/ui/series-detail.tsx'
 import Login from './pages/auth/login.tsx'
+import Search from './pages/search/search.tsx'
+import { AuthProvider } from './features/auth/hoc/AuthProvider.tsx'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path="movies" element={<Movies />} />
-        <Route path="/movies/:id" element={<MoviesDetail />} />
-        <Route path="tv-series" element={<Series />} />
-        <Route path="/tv-series/:id" element={<SeriesDetail />} />
-        <Route path="login" element={<Login />} />
-      </Route>
-    </Routes>
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="search" element={<Search />} />
+          <Route path="/movies/:id" element={<MoviesDetail />} />
+          <Route path="tv-series" element={<Series />} />
+          <Route path="/tv-series/:id" element={<SeriesDetail />} />
+          <Route path="login" element={<Login />} />
+        </Route>
+      </Routes>
+    </AuthProvider>
   )
 }
 
